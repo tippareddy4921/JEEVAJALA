@@ -1,0 +1,50 @@
+<?php
+  $name = $_POST['namee'];
+  $email = $_POST['emaill'];
+  $message = $_POST['messagee'];
+
+  if(!empty($namee) || !empty($emaill) || !empty($messagee)){
+
+    $host = "localhost";
+    $dbusername = "root";
+    $dbpassword = "";
+    $dbname = "project";
+
+    // connection 
+    $conn = new mysqli($host, $dbusername, $dbpassword, $dbname);
+
+    if(mysqli_connect_error()){
+      die('connect error('.mysqli_connect_error().')'.mysqli_connect_error());
+    }
+    else{
+      $SELECT = "SELECT emaill from contact where emaill = ? limit 1";
+      $INSERT = "INSERT Into contact(name, email, message) values(?,?,?)";
+
+      //prepare
+      $stmt = $conn->prepare($SELECT);
+      $stmt->bind_param("s",$emaill);
+      $stmt->execute();
+      $stmt->bind_result($emaill);
+      $stmt->store_result();
+      $rnum = $stmt->num_rows;
+
+      if($rnum==0){
+         $stmt->close();
+
+         $stmt = $conn->prepare($INSERT);
+         $stmt->bind_param("sss",$namee,$emaill,$messagee);
+         $stmt->execute();
+         echo "Message sent successfully";
+
+      } else{
+        echo "Please use a different email ID";
+      }
+      $stmt->close();
+      $conn->close();
+    }
+  }
+  else{
+    echo "All fields are required";
+    die();
+  }
+?>

@@ -1,0 +1,21 @@
+<?php
+	$namee = $_POST['namee'];
+	$emaill = $_POST['emaill'];
+	$messagee = $_POST['messagee'];
+
+
+	// Database connection
+	$conn = new mysqli('localhost','root','','form');
+	if($conn->connect_error){
+		echo "$conn->connect_error";
+		die("Connection Failed : ". $conn->connect_error);
+	} else {
+		$stmt = $conn->prepare("INSERT Into response (name,email,message) values(?, ?, ?)");
+		$stmt->bind_param("sss",$namee,$emaill,$messagee);
+		$execval = $stmt->execute();
+		echo $execval;
+		echo "Message sent Successfully...";
+		$stmt->close();
+		$conn->close();
+	}
+?>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="reserve.css">
+    <link rel="icon" type="image/x-icon" href="logo-t.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <section class="header">
+        <nav>
+            <a href="index.html"><img src="logo-t.png"></a>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html"><i class="fa fa-fw fa-home"></i>Home</a></li>
+                    <li><a href="about.html"><i class="fa fa-fw fa-bookmark "></i>About Us</a></li>
+                    <li><a href="ctc.html"><i class="fa fa-fw fa-envelope-square"></i>Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="heading">
+            <h2>Register your Complaint</h2>
+        </div>
+        <div class="form">
+            <form action="reserve1.html" method="post"><br> Name :
+                <input type="text" required name="namee"><br><br>
+                <hr><br>Mobile Number:
+                <input type="tel" required name="number" id=""><br><br>
+                <hr><br> Email-Address:
+                <input type="email" required name="email" id=""><br><br>
+                <hr><br> Select State:
+                <input list="area" name="area" required>
+                <datalist id="area">
+      <option value="Bengaluru">
+      <option value="Mumbai">
+      <option value="Ahmedabad">
+      <option value="Hyderabad">
+      <option value="Kolkata">
+        <option value="Chennai">
+          <option value="Pune">
+      </datalist><br><br>
+                <div class="products">
+                    <hr><br> COMPLAINT DETAILS: <br>
+                    <hr><br> Complaint Description:
+                    <input type="text" name="descr" id=""><br>
+                    <hr><br> Complaint duration:
+                    <input type="text" name="dura" id=""><br>
+                    <hr><br> Authorities Involved (Optional):
+                    <input type="text" name="autho" id="">
+                    <hr><br> Suggested Solution (Optional)
+                    <input type="text" name="solut" id="">
+                    <hr><br> Complaint type (Severe, moderate, mild):
+                    <input type="text" name="typec" id="">
+                    <hr><br> Any complaints registered before:
+                    <input type="text" name="regbef" id="">
+                    <hr><br> Any other message (Optional):
+                    <input type="text" name="addit" id="">
+                    <hr>
+                    <br></div>
+                <div class="button">
+                    <input type="submit" value="Complain Now" name="submit" id="">
+                </div>
+        </div>
+</body>
+
+</html>
